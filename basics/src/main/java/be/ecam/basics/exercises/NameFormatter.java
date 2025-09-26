@@ -19,8 +19,9 @@ public class NameFormatter {
 
     public static String displayName(Person p) {
         String s = p.getFirstName().trim();
-        if (!p.getMiddleName().isEmpty()) {
-            s += " " + p.getMiddleName().trim();
+        String m = p.getMiddleName();
+        if (m != null && !m.isEmpty()) {
+            s += " " + m.trim();
         }
         s += " " + p.getLastName().trim();
         return s;

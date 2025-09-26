@@ -1,6 +1,7 @@
 package be.ecam.basics.exercises;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Inventory {
     public static class Item {
@@ -10,8 +11,9 @@ public class Inventory {
     }
 
     public static boolean hasSku(List<Item> items, String sku) {
-        for (Item i : items) {
-            if (i.getSku() == sku) {
+        if (items == null || items.isEmpty()) return false;
+        for (Item it : items) {
+            if (it != null && Objects.equals(it.getSku(), sku)) {
                 return true;
             }
         }
